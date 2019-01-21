@@ -5,11 +5,24 @@
   </head>
 
   <body>
-    Hello, it's currently <span id="datetime">today</span>.
+    <h1>Hello, it's currently <span id="datetime">today</span>.</h1>
+
+    
+    <p>Here are headers from a XMLHttpRequest: <div id="headers"></div></p>
 
     <script>
       var dt = document.getElementById("datetime");
       dt.innerHTML = new Date().toString();
+
+      function reqListener () {
+        var headers = document.getElementById("headers");
+        headers.innerHTML = this.getAllResponseHeaders();
+      }
+
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", reqListener);
+      oReq.open("GET", "/index.html");
+      oReq.send();
     </script>
   </body>
 </html>
