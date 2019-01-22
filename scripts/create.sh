@@ -25,11 +25,11 @@ gsutil mb -c regional -l us-central1 gs://$BUCKET
 # make the bucket publically readable
 gsutil defacl set public-read gs://$BUCKET
 
-# upload example/index.html to the bucket
-gsutil cp -Z example/index.html gs://$BUCKET
-
 # Add CORS config for 
 gsutil cors set example/cors-config-example.json gs://$BUCKET
+
+# upload example/index.html to the bucket
+gsutil cp -Z example/index.html gs://$BUCKET
 
 # map / to /index.html
 gsutil web set -m index.html gs://$BUCKET
