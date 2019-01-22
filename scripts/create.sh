@@ -22,11 +22,11 @@ gcloud services enable compute.googleapis.com
 # create a GCS bucket
 gsutil mb -c regional -l us-central1 gs://$BUCKET
 
-# upload example/index.html to the bucket
-gsutil cp example/index.html gs://$BUCKET
-
 # make the bucket publically readable
 gsutil defacl set public-read gs://$BUCKET
+
+# upload example/index.html to the bucket
+gsutil cp -Z example/index.html gs://$BUCKET
 
 # Add CORS config for 
 gsutil cors set example/cors-config-example.json gs://$BUCKET
