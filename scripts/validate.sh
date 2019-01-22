@@ -15,14 +15,16 @@ HEADERS=$(curl -vvvv -I -H "Origin: http://example.appspot.com" \
 
 if [[ ! $HEADERS =~ "Access-Control-Allow-Origin: *" ]]; then
 	echo -e "FAILED: Missing the Access-Control-Allow-Origin header!"
-	echo -e "NOTE that it may take time to propogate these headers."
+	echo -e "NOTE that it may take time to propagate these headers.\
+404 errors also indicate a pending propagation from GCS > CDN."
 else
 	echo "SUCCESS: 'Access-Control-Allow-Origin' header is present"
 fi
 
 if [[ ! $HEADERS =~ "Access-Control-Expose-Headers: Origin" ]]; then
 	echo -e "FAILED: Missing the Access-Control-Expose-Headers header!"
-	echo -e "NOTE that it may take time to propogate these headers."
+	echo -e "NOTE that it may take time to propagate these headers.\
+404 errors also indicate a pending propagation from GCS > CDN."
 else
 	echo "SUCCESS: 'Access-Control-Expose-Headers' header is present"
 fi
