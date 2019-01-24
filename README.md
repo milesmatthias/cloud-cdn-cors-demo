@@ -2,6 +2,7 @@
 A simple demo on options to add CORS headers to the GCP Cloud CDN
 
 NOTE -- This is for demo purposes only. Do not run this in production.
+This repo will not be maintained either.
 It is also recommended that you run this demo in a new project.
 
 
